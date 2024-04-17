@@ -35,8 +35,3 @@ class Account{
     static final int odLimit=1000;
 
 }
-
-class Student {
-    int age = 19;
-
-}
