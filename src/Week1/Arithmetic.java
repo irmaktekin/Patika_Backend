@@ -4,21 +4,21 @@ import java.util.Scanner;
 
 public class Arithmetic {
     public static void main(String [] args){
-        int num1,num2,num3,result;
+        int a,b,c,result;
         // Get three numbers from the user
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Please enter a: ");
-        num1 = scanner.nextInt();
+        a = scanner.nextInt();
 
         System.out.print("Please enter b: ");
-        num2 = scanner.nextInt();
+        b = scanner.nextInt();
 
         System.out.print("Please enter c: ");
-        num3 = scanner.nextInt();
+        c = scanner.nextInt();
 
         // calculation for the inputs
-        result = num1+num2*num3-num2;
+        result = a+b*c-b;
 
         //Display the result in the console
         System.out.println("Result is: "+result);
