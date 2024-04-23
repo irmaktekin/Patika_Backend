@@ -9,8 +9,8 @@ public class BodyMassIndex {
         double height = input.nextDouble();
         System.out.println("Please enter your weight in kg:");
         double weight = input.nextDouble();
-        //calculate body mass index
+        //calculate body mass index.
         System.out.println("Your body mass index is: "+(weight/(height*height)));
-        
+
     }
 }
