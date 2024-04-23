@@ -4,11 +4,8 @@ import java.util.Scanner;
 
 public class GroceryShopping {
     public static void main(String[] args){
-        double perapple=3.67;
-        double pertomatoe=1.11;
-        double perpear= 2.14;
-        double perbanana=0.95;
-        double peraubergine=5.00;
+        double perapple=3.67, pertomatoe=1.11, perpear= 2.14, perbanana=0.95, peraubergine=5.00;
+
         Scanner input = new Scanner(System.in);
         System.out.println("How many kg would you like to buy from apple?");
         double apple = input.nextDouble();
@@ -21,10 +18,9 @@ public class GroceryShopping {
         System.out.println("How many kg would you like to buy from aubergine?");
         double aubergine = input.nextDouble();
 
+        // multiply per price with the item and sum up all.
         double totalprice = apple*perapple+pear*perpear+tomatoes*pertomatoe+banana*perbanana+aubergine*peraubergine;
-        System.out.println("Total price is: "+ totalprice);
-
-
-
+        //format the output for showing only 2 decimal.
+        System.out.printf("Total price is: %.2f",totalprice);
     }
 }
