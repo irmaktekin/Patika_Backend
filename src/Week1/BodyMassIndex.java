@@ -7,10 +7,10 @@ public class BodyMassIndex {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your height in meter:");
         double height = input.nextDouble();
-        System.out.println("Please enter your weight:");
+        System.out.println("Please enter your weight in kg:");
         double weight = input.nextDouble();
-        System.out.println("Your body mass index is: "+(weight/height*height));
-
-
+        //calculate body mass index
+        System.out.println("Your body mass index is: "+(weight/(height*height)));
+        
     }
 }
