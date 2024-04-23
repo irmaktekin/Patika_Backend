@@ -5,28 +5,36 @@ import java.util.Scanner;
 public class VatCalculation {
 
     public static void main(String[] args ){
-        double vatrate;
-        double vatprice;
+        double vatrate,vatprice;
+        
+        //Get the price from the user
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter the price:");
+        System.out.println("Fiyat giriniz:");
         double price = input.nextDouble();
 
-
-        if (price>0 && price<1000) {
+        //If the price is 0, execute this block.
+        if(price ==0){
+            System.out.println("Fiyat 0 olamaz!");
+        }
+        //If the price is negative value execute this block.
+        if(price<0){
+            System.out.println("Fiyat negatif bir sayı olamaz!");
+        }
+        if (price>0 && price<=1000) {
             vatrate =0.18;
             vatprice = price*vatrate;
-            System.out.println("Vat rate:"+ vatrate);
-            System.out.println("Price with vat rate:"+ price+vatprice);
-            System.out.println("Vat rate price:"+ (vatprice));
-
+            System.out.println("Vat Rate: "+ vatrate);
+            //Use sum method of the Double class for adding price and vat price
+            System.out.println("Price with Vat Rate: "+Double.sum(price,vatprice));
+            System.out.println("Vat Amount: "+ (vatprice));
         }
-        else{
+        if (price>1000){
             vatrate= 0.08;
             vatprice = price*vatrate;
-            System.out.println("Vat rate:"+ vatrate);
-            System.out.println("Price with vat rate:"+ price+vatprice);
-            System.out.println("Vat rate price:"+ (vatprice));
-
+            System.out.println("Vat Rate: "+ vatrate);
+            //Use sum method of the Double class for adding price and vatprice
+            System.out.println("Price with Vat Rate: "+Double.sum(price,vatprice));
+            System.out.println("Vat Amount: "+ (vatprice));
         }
 
     }
