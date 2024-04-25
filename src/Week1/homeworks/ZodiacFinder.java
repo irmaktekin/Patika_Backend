@@ -26,6 +26,6 @@ public class ZodiacFinder {
             case 11->"Sheep";
             default->"Invalid number for the zodiac.";
         };
-        System.out.println(zodiac);
+        System.out.println("Your zodiac is: "+zodiac);
     }
 }
