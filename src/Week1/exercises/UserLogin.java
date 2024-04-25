@@ -1,4 +1,4 @@
-package Week2;
+package Week1.exercises;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ public class UserLogin {
     public static void main(String[] args){
         String validUsername = "patika@test.com";
         String validPassword = "patika.!12";
-        int resetPassword;
+        String resetPassword;
         String newPassword;
 
         Scanner input = new Scanner(System.in);
@@ -18,41 +18,37 @@ public class UserLogin {
         System.out.println("Password: ");
         String password = input.nextLine();
 
-        if(username.equals(validUsername) && password.equals(validPassword)){
+        /*If username is not correct, we will not check password either,
+        username must be correct for the reset operation*/
+        if(!(username.equals(validUsername))){
+            System.out.println("Please enter a valid username.");
+        }
+        /*If username and password is correct, user is logged in*/
+        else if(username.equals(validUsername) && password.equals(validPassword)){
             System.out.println("Succesfully logged in.");
         }
+
+        /*If username is correct but password is wrong, ask for the new  password*/
         else if (username.equals(validUsername) && !(password.equals(validPassword))){
             System.out.println("Do you want to reset your password?: ");
-            System.out.println("1-Yes\n2-No");
-            resetPassword = input.nextInt();
+            System.out.println("Y\nN");
+            resetPassword = input.nextLine().toUpperCase();
 
-            if(resetPassword==1){
-                int i=0;
+            if(resetPassword.equals("Y")){
                 System.out.println("Enter your new password: ");
                 newPassword = input.nextLine();
-                newPassword = input.nextLine();
-                //User can enter a not valid password for three times during the reset password operation.
-                while(i<3){
                     if(newPassword.equals(validPassword)){
-                        i++;
                         System.out.println("You should enter a password which is not same with the previous. " +
-                                "Please enter a different password:");
-                        newPassword = input.nextLine();
-
+                                "Please enter a different password!");
                     }
                     else{
                         System.out.println("New password is created.");
-                        break;
                     }
-                }
-
             }
+            //If user does not want to reset it, it will not reset.
             else{
                 System.out.println("The reset password operation will not be performed.");
             }
-        }
-        else{
-            System.out.println("Please enter a valid username.");
         }
     }
 }
