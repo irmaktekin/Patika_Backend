@@ -33,6 +33,7 @@ public class TicketPrice {
             System.out.println(flightType);
             System.out.println("Hatalı veri girdiniz");
         }
+        
         //if flight type 2, first apply %20 discount.
         else if (flightType == 2) {
             //different discounts according to ages
