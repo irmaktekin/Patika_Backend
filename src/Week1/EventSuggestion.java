@@ -15,17 +15,20 @@ public class EventSuggestion {
         if(temp<5){
             System.out.println("Skating");
         }
-        /*If temperature is between 5 and 15*/
-        else if(temp>=5 && temp<=15){
-            System.out.println("Cinema");
-        }
-        /*If temperature is between 15 and 25*/
-        else if(temp>15 && temp<=25){
-            System.out.println("Picnic");
-        }
-        /*If temperature is greater than 25*/
-        else{
-            System.out.println("Swimming");
+        /*If it is smaller or equal to 5*/
+        else {
+            /*If temperature is between 5 and 15*/
+            if (temp >= 5 && temp <= 15) {
+                System.out.println("Cinema");
+            }
+            /*If temperature is between 15 and 25*/
+            else if (temp > 15 && temp <= 25) {
+                System.out.println("Picnic");
+            }
+            /*If temperature is greater than 25*/
+            else {
+                System.out.println("Swimming");
+            }
         }
     }
 }
