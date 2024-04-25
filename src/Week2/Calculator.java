@@ -21,6 +21,7 @@ public class Calculator {
         System.out.println("What is your choice: ");
         operationNo =input.nextInt();
 
+        // do the operations according to the number user select
         switch(operationNo){
             case 1:
                 result = n1+n2;
