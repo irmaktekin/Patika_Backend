@@ -49,7 +49,6 @@ public class TicketPrice {
             //Apply roundtrip discount and subtract from the total price, multiply with 2 for roundtrip
             roundtripdiscount=(price)*0.20f;
             price=(price-roundtripdiscount)*2;
-            System.out.println("Total price:"+price);
         }
 
         //if flight 1, discount will change according to age.
@@ -63,8 +62,8 @@ public class TicketPrice {
             }
             // Age discount will subtract from the price
             price-=ageDiscount;
-            System.out.println("Total price:"+price);
         }
+        System.out.println("Total price:"+price);
     }
 }
 
