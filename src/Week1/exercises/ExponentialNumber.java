@@ -9,7 +9,7 @@ public class ExponentialNumber
         /*Math.pow(base,exponent)* will handle the all exponent types, but in this program we need to
         handle it for loop, so the floating exponents or negative ones will be not handled/
          */
-        
+
         /*Get input from the user.*/
         Scanner input = new Scanner(System.in);
 
