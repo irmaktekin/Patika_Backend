@@ -6,6 +6,10 @@ public class ExponentialNumber
 {
     public static void main(String[] args) {
 
+        /*Math.pow(base,exponent)* will handle the all exponent types, but in this program we need to
+        handle it for loop, so the floating exponents or negative ones will be not handled/
+         */
+        
         /*Get input from the user.*/
         Scanner input = new Scanner(System.in);
 
@@ -14,10 +18,12 @@ public class ExponentialNumber
 
         System.out.println("Enter the exponent number:");
         int exponent = input.nextInt();
-        int result =1;
+        int result=1 ;
+        double fractionPart= exponent - (int) exponent;
 
         //If exponent is 0, result will be 1.
         if(exponent==0){
+            result=1;
             System.out.println(result);
         }
         else if(exponent<0){
@@ -31,4 +37,5 @@ public class ExponentialNumber
             System.out.println(result);
         }
     }
+
 }
