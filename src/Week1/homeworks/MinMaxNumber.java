@@ -16,11 +16,11 @@ public class MinMaxNumber {
             System.out.printf("Enter number %d:\n",i);
             int number = input.nextInt();
             //if number is greater than max value, then the new max will be the new number.
-            if(number>=max){
+            if(number>max){
                 max=number;
             }
             //if number is smaller than min value, then the new min value will be the new number.
-            if(number<=min){
+            if(number<min){
                 min=number;
             }
             i++;
