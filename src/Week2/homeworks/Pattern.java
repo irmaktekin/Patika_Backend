@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 
 public class Pattern {
-    /*Three parameters are used:*
-    number->for decreasing, increasing the value.
-    a->once the number is negative, it will set to 1.
-    firstNumber -> holds the initial value for not exceed the number.
-     */
     static int firstNumber;
     static int isNegative;
+    /*
+    isNegative->once the number is negative, it will set to 1.
+     */
+
     public static void createPattern(int number,int isNegative){
         System.out.println(number);
 
