@@ -10,15 +10,16 @@ public class Pattern {
     firstNumber -> holds the initial value for not exceed the number.
      */
     static int firstNumber;
-    public static void createPattern(int number,int a){
+    static int isNegative;
+    public static void createPattern(int number,int isNegative){
         System.out.println(number);
 
         /* if the value is negative before and if the capacity will not exceed
             add 5 to the number, even it is greater than 0.
         */
-        if(a!=0){
+        if(isNegative!=0){
             if(number+5<=firstNumber){
-                createPattern(number+5,a);
+                createPattern(number+5,isNegative);
             }
         }
         //number is negative and capacity will not be exceeded
@@ -37,7 +38,7 @@ public class Pattern {
         System.out.println("Enter the number:");
         firstNumber = input.nextInt();
         //method call
-        createPattern(firstNumber,0);
+        createPattern(firstNumber,isNegative);
     }
 }
 
