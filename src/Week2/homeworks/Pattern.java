@@ -21,7 +21,7 @@ public class Pattern {
             }
         }
         //number is negative and capacity will not be exceeded
-        else if(((number)<=0 && (number+5)<=Math.abs(firstNumber))) {
+        else if(((number)<=0)) {
             createPattern(number+5,1,firstNumber);
 
         }
