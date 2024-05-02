@@ -1,13 +1,13 @@
 package Week2.homeworks;
 
-public class SalaryCalculator {
+public class Employee {
     String name;
     double salary;
     int workHours;
     int hireYear;
     static final int CURRENT_YEAR = 2021;
 
-    public SalaryCalculator(String name, double salary, int workHours, int year){
+    public Employee(String name, double salary, int workHours, int year){
         this.name=name;
         this.salary=salary;
         this.workHours=workHours;
@@ -58,7 +58,7 @@ public class SalaryCalculator {
 
 
     public static void main(String[] args) {
-        SalaryCalculator emp1 = new SalaryCalculator("Irmak",3000,42,1990);
+        Employee emp1 = new Employee("Irmak",3000,42,1990);
         //It calls the tostring method and print the values.
         System.out.println(emp1);
 
