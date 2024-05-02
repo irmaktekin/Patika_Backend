@@ -16,13 +16,13 @@ public class Ring {
     public void run(Fighter fighter1, Fighter fighter2) {
 
         if (checkWeight()) {
-            while (f1.health > 0 && f2.health > 0) {
+            while (fighter2.health > 0 && fighter1.health > 0) {
                 System.out.println("======== YENİ ROUND ===========");
-                f2.health = f1.hit(f2);
+                fighter2.health = fighter1.hit(fighter2);
                 if (isWin()){
                     break;
                 }
-                f1.health = f2.hit(f1);
+                fighter1.health = fighter2.hit(fighter1);
                 if (isWin()){
                     break;
                 }
@@ -63,12 +63,12 @@ public class Ring {
         double randomNumber= Math.random();
         //If the number<0.5->f1 is the first
         if(randomNumber<0.5){
-            System.out.println(f1.name+f2.name);
+            System.out.println(f1.name);
             run(f1,f2);
         }
         //If the number<0.5->f2 is the first
         else{
-            System.out.println(f1.name+f2.name);
+            System.out.println(f2.name);
             run(f2,f1);
         }
 
