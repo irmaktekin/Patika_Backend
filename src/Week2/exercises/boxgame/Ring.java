@@ -63,14 +63,11 @@ public class Ring {
         double randomNumber= Math.random();
         //If the number<0.5->f1 is the first
         if(randomNumber<0.5){
-            System.out.println(f1.name);
             run(f1,f2);
         }
         //If the number<0.5->f2 is the first
         else{
-            System.out.println(f2.name);
             run(f2,f1);
         }
-
     }
 }
