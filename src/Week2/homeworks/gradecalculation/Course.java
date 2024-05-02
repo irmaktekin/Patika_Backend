@@ -59,11 +59,6 @@ public class Course {
             System.out.println(this.name + " dersine Akademisyen atanmamıştır.");
         }
     }
-
-    /*It will calculate the notes with performance grade
-    The course class calculation can be changed according to course and also for the encapsulation
-    it is defined in Course class.
-     */
-    //performanceGrade*percentage+(1-percentage)*note
+    
 
 }
