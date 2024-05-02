@@ -41,17 +41,21 @@ public class Student {
         }
 
     }
+    //adds performance note to the lessons.
     public void addBulkPerformanceNote(int grade1, int grade2, int grade3) {
+        if(this.mat.performanceGrade == 0 || this.fizik.performanceGrade == 0 || this.kimya.performanceGrade == 0){
+            System.out.println("Notlar tam olarak girilmemiş");
+        }
 
-        if (grade1 >= 0 && grade1 <= 100) {
+        else if (grade1 >= 0 && grade1 <= 100) {
             this.mat.performanceGrade = grade1;
         }
 
-        if (grade2 >= 0 && grade2 <= 100) {
+        else if (grade2 >= 0 && grade2 <= 100) {
             this.fizik.performanceGrade = grade2;
         }
 
-        if (grade3 >= 0 && grade3 <= 100) {
+        else if (grade3 >= 0 && grade3 <= 100) {
             this.kimya.performanceGrade = grade3;
         }
 
