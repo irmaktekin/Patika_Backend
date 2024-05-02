@@ -11,8 +11,9 @@ public class Course {
     static final double MATH_PERCENTAGE=0.20;
     static final double PHYSIC_PERCENTAGE=0.40;
     static final double CHEMISTRY_PERCENTAGE=0.30;
-    double finalGrade;
 
+    double performanceGrade;
+    double finalGrade;
 
 
     //New parameter performance grade is added to the constructor.
@@ -59,6 +60,6 @@ public class Course {
             System.out.println(this.name + " dersine Akademisyen atanmamıştır.");
         }
     }
-    
+
 
 }

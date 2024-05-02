@@ -10,7 +10,6 @@ public class Student {
     Course kimya;
     double average;
     boolean isPass;
-    double performanceGrade;
 
 
 
@@ -45,15 +44,15 @@ public class Student {
     public void addBulkPerformanceNote(int grade1, int grade2, int grade3) {
 
         if (grade1 >= 0 && grade1 <= 100) {
-            this.performanceGrade = grade1;
+            this.mat.performanceGrade = grade1;
         }
 
         if (grade2 >= 0 && grade2 <= 100) {
-            this.performanceGrade = grade2;
+            this.fizik.performanceGrade = grade2;
         }
 
         if (grade3 >= 0 && grade3 <= 100) {
-            this.performanceGrade = grade3;
+            this.kimya.performanceGrade = grade3;
         }
 
     }
@@ -75,9 +74,9 @@ public class Student {
 
     public double calcAverage() {
         //call for calculation with performance grades.
-        mat.finalGrade =(this.performanceGrade* this.mat.percentage)+ (this.mat.note*(1- this.mat.percentage));
-        fizik.finalGrade =(this.performanceGrade* this.fizik.percentage)+ (this.fizik.note*(1- this.fizik.percentage));
-        kimya.finalGrade =(this.performanceGrade* this.kimya.percentage)+ (this.kimya.note*(1- this.kimya.percentage));
+        mat.finalGrade =(mat.performanceGrade* this.mat.percentage)+ (this.mat.note*(1- this.mat.percentage));
+        fizik.finalGrade =(mat.performanceGrade* this.fizik.percentage)+ (this.fizik.note*(1- this.fizik.percentage));
+        kimya.finalGrade =(mat.performanceGrade* this.kimya.percentage)+ (this.kimya.note*(1- this.kimya.percentage));
 
         //Average of final grades
         this.average = (fizik.finalGrade + kimya.finalGrade + mat.finalGrade) / 3;
