@@ -10,6 +10,9 @@ public class Student {
     Course kimya;
     double average;
     boolean isPass;
+    double performanceGrade;
+
+
 
 
     Student(String name, int classes, String stuNo, Course mat,Course fizik,Course kimya) {
@@ -39,6 +42,21 @@ public class Student {
         }
 
     }
+    public void addBulkPerformanceNote(int grade1, int grade2, int grade3) {
+
+        if (grade1 >= 0 && grade1 <= 100) {
+            this.performanceGrade = grade1;
+        }
+
+        if (grade2 >= 0 && grade2 <= 100) {
+            this.performanceGrade = grade2;
+        }
+
+        if (grade3 >= 0 && grade3 <= 100) {
+            this.performanceGrade = grade3;
+        }
+
+    }
 
     public void isPass() {
         if (this.mat.note == 0 || this.fizik.note == 0 || this.kimya.note == 0) {
@@ -57,9 +75,9 @@ public class Student {
 
     public double calcAverage() {
         //call for calculation with performance grades.
-        this.mat.courseGradeCalculation();
-        this.fizik.courseGradeCalculation();
-        this.kimya.courseGradeCalculation();
+        mat.finalGrade =(this.performanceGrade* this.mat.percentage)+ (this.mat.note*(1- this.mat.percentage));
+        fizik.finalGrade =(this.performanceGrade* this.fizik.percentage)+ (this.fizik.note*(1- this.fizik.percentage));
+        kimya.finalGrade =(this.performanceGrade* this.kimya.percentage)+ (this.kimya.note*(1- this.kimya.percentage));
 
         //Average of final grades
         this.average = (fizik.finalGrade + kimya.finalGrade + mat.finalGrade) / 3;
@@ -78,7 +96,6 @@ public class Student {
         System.out.println("Fizik Notu : " + this.fizik.note);
         System.out.println("Kimya Notu : " + this.kimya.note);
     }
-
 
 }
 

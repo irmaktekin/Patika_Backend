@@ -6,24 +6,23 @@ public class Course {
     String code;
     String prefix;
     int note;
-    double performanceGrade;
     double percentage=1;
-    double finalGrade;
     //Declared as constants, for further use cases values can be changed easily.
     static final double MATH_PERCENTAGE=0.20;
     static final double PHYSIC_PERCENTAGE=0.40;
     static final double CHEMISTRY_PERCENTAGE=0.30;
+    double finalGrade;
 
 
-//New parameter performance grade is added to the constructor.
-    public Course(String name, String code, String prefix,double performanceGrade) {
+
+    //New parameter performance grade is added to the constructor.
+    public Course(String name, String code, String prefix) {
         this.name = name;
         this.code = code;
         this.prefix = prefix;
         this.note = 0;
         //It will set the percentages to the course according to the prefixes.
         this.percentage=setPercentage();
-        this.performanceGrade=performanceGrade;
         //It calls the setPercentage for clarifying percentage per class
     }
 
@@ -66,8 +65,5 @@ public class Course {
     it is defined in Course class.
      */
     //performanceGrade*percentage+(1-percentage)*note
-    public double courseGradeCalculation(){
-        this.finalGrade =(this.performanceGrade* this.percentage)+ (note*(1- this.percentage));
-        return this.finalGrade;
-    }
+
 }
