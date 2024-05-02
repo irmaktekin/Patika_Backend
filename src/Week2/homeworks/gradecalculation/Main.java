@@ -23,6 +23,7 @@ public class Main {
 
         Student s2 = new Student("Güdük Necmi", 4, "2211133", mat, fizik, kimya);
         s2.addBulkExamNote(100,50,40);
+        //Method call for adding performance grades
         s1.addBulkPerformanceNote(100,100,100);
         s2.isPass();
 
