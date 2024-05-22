@@ -28,6 +28,7 @@ public class ExceptionHandling {
             }
         }
     }
+    //method for getting the element from the array
     static int getElement(int[] numberArray,int index){
         return numberArray[index];
     }
