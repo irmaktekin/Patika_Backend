@@ -9,18 +9,23 @@ public class ExceptionHandling {
         int [] numberArray  = {1,2,3,4,5,6,7,8,9,10};
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the index:" );
-        int index = input.nextInt();
 
-        try{
-            int result = getElement(numberArray,index);
-            System.out.println(result);
-        }
-        catch(ArrayIndexOutOfBoundsException e){
-            System.out.println(e.getMessage());
+        while(true){
+            System.out.print("Enter the index:" );
+            int index = input.nextInt();
+
+            try{
+                int result = getElement(numberArray,index);
+                System.out.println(result);
+                break;
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+            }
+
         }
     }
-    public static int getElement(int[] numberArray,int index){
+    static int getElement(int[] numberArray,int index){
         return numberArray[index];
     }
 }
