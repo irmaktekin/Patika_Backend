@@ -6,23 +6,25 @@ import java.util.Scanner;
 public class ExceptionHandling {
 
     public static void main(String[] args) {
-        int [] numberArray  = {1,2,3,4,5,6,7,8,9,10};
-
+        int [] numberArray  = {15,23,32,46,54,67,70,81,92,100};
         Scanner input = new Scanner(System.in);
 
-        while(true){
+        //It will get the input for 5 times.
+        int i=0;
+        while(i<5){
             System.out.print("Enter the index:" );
             int index = input.nextInt();
 
             try{
                 int result = getElement(numberArray,index);
                 System.out.println(result);
-                break;
             }
             catch(ArrayIndexOutOfBoundsException e){
                 System.out.println(e.getMessage());
             }
-
+            finally {
+                i++;
+            }
         }
     }
     static int getElement(int[] numberArray,int index){
