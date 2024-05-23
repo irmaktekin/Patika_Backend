@@ -23,7 +23,6 @@ public class ExceptionHandling {
                 System.out.println(e.getMessage());
             }
             finally {
-                input.close();
                 i++;
             }
         }
