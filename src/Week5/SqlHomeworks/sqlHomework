@@ -1,5 +1,9 @@
 ----------Homework1-------
 #1
+-- It displays the related columns.
+SELECT title, description
+FROM film;
+--It sorts the rows primarily with the title then the description.
 Select *
 From film
 Order by title, description;
@@ -7,7 +11,7 @@ Order by title, description;
 #2
 Select *
 From film
-Where length between 61 and 74;
+Where length > 60 and length <75;
 
 #3
 Select *
@@ -22,7 +26,7 @@ Where first_name = 'Mary';
 #5
 Select *
 From film
-Where length<=50 And Not(rental_rate =2.99 Or rental_rate =4.99);
+Where length<=50 And Not In(2.99, 4.99);
 -----------Homework 2------
 #1
 Select *
@@ -30,19 +34,19 @@ From film
 Where replacement_cost Between 12.99 And 16.98;
 
 #2
-Select *
+Select first_name, last_name
 From actor
 Where first_name In ('Penelope', 'Nick', 'Ed');
 
 #3
-Select f.title, f.rental_rate, f.replacement_cost
-From film f
+Select *
+From film
 Where rental_rate In(0.99, 2.99, 4.99) And replacement_cost In (12.99, 15.99, 28,99);
 
 --------Homework 3----------
 #1
-Select c.country
-From country c
+Select country
+From country
 Where country like ('A%a');
 
 #2
@@ -58,16 +62,16 @@ Where title ilike ('%t%t%t%t%');
 #4
 Select *
 From film
-Where title like ('C%') And length >90 And rental_rate = 2.99;
+Where title like 'C%' And length >90 And rental_rate = 2.99;
 
 ---------Homework4-----------
 
 #1
-Select distinct(replacement_cost)
+Select distinct(replacement_cost) As replacement_cost
 From film;
 
 #2
-Select count(distinct replacement_cost)
+Select count(distinct replacement_cost) As unique_count
 From film;
 
 #3
