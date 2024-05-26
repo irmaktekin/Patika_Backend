@@ -8,6 +8,7 @@ public class MostFrequentWord {
 
         //Input operations
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the text please:");
         //It is for preventing "I" to become i when lowercase.
         String text = scanner.nextLine().toLowerCase(Locale.forLanguageTag("tr"));
 
