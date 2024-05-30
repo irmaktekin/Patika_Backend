@@ -4,8 +4,10 @@ import java.io.*;
 import java.util.Scanner;
 
 public class NotePad {
-    private static String path = "src/Week6/input2.txt";
+    private static String path = System.getProperty("user.dir")+"/input2.txt";
+
     public static void main(String[] args) throws IOException {
+        System.out.println(path);
         writeToFile(getInput());
         readFile();
     }
