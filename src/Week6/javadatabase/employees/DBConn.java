@@ -18,6 +18,19 @@ public class DBConn {
         try {
             connect = DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             Statement st = connect.createStatement();
+            //Insert data
+            String sql1 = "insert into employees (employee_name, position,salary) values ('Chris', 'Accountant',5000)";
+            String sql2 = "insert into employees (employee_name, position,salary) values ('Tom', 'Project Manager',4000)";
+            String sql3 = "insert into employees (employee_name, position,salary) values ('Nick', 'Manager',3000)";
+            String sql4 = "insert into employees (employee_name, position,salary) values ('Suzanne', 'Manager',7000)";
+            String sql5 = "insert into employees (employee_name, position,salary) values ('Anna', 'Executive',3000)";
+
+            st.executeUpdate(sql1);
+            st.executeUpdate(sql2);
+            st.executeUpdate(sql3);
+            st.executeUpdate(sql4);
+            st.executeUpdate(sql5);
+
             ResultSet data = st.executeQuery(sql);
             while(data.next()){
                 System.out.println("Id: "+data.getInt("id"));
