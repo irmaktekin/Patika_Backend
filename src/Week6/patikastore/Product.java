@@ -59,11 +59,8 @@ public abstract class Product{
     static void filterByBrand(Map<Integer,Product> products,Brand brand){
 
         for (Map.Entry<Integer, Product> entry : products.entrySet()) {
-            if(entry.getValue().getBrand().equals(brand)){
+            if(entry.getValue().getBrand().toString().equals(brand.toString())){
                 System.out.format( " ID-> %s Name-> %s Brand-> %s Price-> %-2d ", entry.getKey(), entry.getValue().getName(),entry.getValue().getBrand(),entry.getValue().getPrice());
-            }
-            else{
-                System.out.println("No product exist with this brand.");
             }
         }
         System.out.println();
@@ -78,13 +75,13 @@ public abstract class Product{
                 '}';
     }
 
-    static void filterById(Map<Integer,Product> products, Integer id){
+    static void filterById(Map<Integer,Product> products, int id){
         for (Map.Entry<Integer, Product> entry : products.entrySet()) {
-            if(Objects.equals(entry.getKey(), id)){
+            if(entry.getKey().equals(id)){
                 System.out.format( " ID-> %s Name-> %s Brand-> %s Price-> %-2d ", entry.getKey(), entry.getValue().getName(),entry.getValue().getBrand(),entry.getValue().getPrice());
             }
             else{
-                System.out.println("No product exist with this brand.");
+                System.out.println("No product exist with this ID.");
                 break;
             }
         }

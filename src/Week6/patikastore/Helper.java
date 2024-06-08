@@ -1,5 +1,4 @@
 package Week6.patikastore;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -39,6 +38,7 @@ public class Helper {
     public static void inputOperations() {
         //Main menu input operations
         boolean isExit = true;
+        boolean isSubMenu = true;
         while (isExit) {
             Scanner scn = new Scanner(System.in);
             System.out.println("Welcome to Patika Store!");
@@ -50,15 +50,37 @@ public class Helper {
                     System.out.println("See you later...");
                     isExit = false;
                     break;
+                    //Show menu for notebook operations
                 case 1:
+                    while(isSubMenu){
                         System.out.println("Welcome to notebook operations!");
                         System.out.println("1-Show notebooks\n2-Add notebook\n3-Delete notebook\n4-Filter By ID\n5-Filter By Brand\n0-Main Menu");
                         int choice = scn.nextInt();
-
+                        //List notebooks
                         if (choice == 1) {
                             System.out.println("***NOTEBOOK LIST***");
                             Product.listProducts(Helper.getNotebooks());
-                        } else if (choice == 3) {
+                        }
+                        //Add product
+                        else if (choice == 2) {
+                            System.out.println("Select the product brand:");
+                            scn.nextLine();
+                            String brand = scn.nextLine();
+                            System.out.println("Enter the product id");
+                            int id = scn.nextInt();
+                            System.out.println("Enter the product price");
+                            int price = scn.nextInt();
+                            System.out.println("Enter the product name");
+                            scn.nextLine();
+                            String name = scn.nextLine();
+                            try{
+                                Product.addProduct(Helper.getNotebooks(), new NoteBook(Brand.valueOf(brand), name, price), id);
+                            }catch(Exception e){
+                                System.out.println("This brand is not included in this store.");
+                            }
+                        }
+                        //Delete product
+                        else if (choice == 3) {
                             System.out.println("Enter the product id you want to delete.");
                             int productId = scn.nextInt();
                             if (Product.removeProduct(Helper.getNotebooks(), productId)) {
@@ -68,7 +90,43 @@ public class Helper {
                             } else {
                                 System.out.println("There is no product with ID-> " + productId);
                             }
-                        } else if (choice == 2) {
+                        }
+                        //Filter By Id
+                        else if (choice == 4) {
+                            System.out.println("Enter the product id you want to display:");
+                            int productID = scn.nextInt();
+                            Product.filterById(Helper.getNotebooks(), productID);
+                        }
+                        //Filter by Brand
+                        else if (choice == 5) {
+                            System.out.println("Enter the product brand you want to display:");
+                            scn.nextLine();
+                            String brand = scn.nextLine().toUpperCase();
+                            try{
+                                Product.filterByBrand(Helper.getNotebooks(), Brand.valueOf(brand));
+                            }catch (Exception e){
+                                System.out.println("No product with this brand.");
+                            }
+                        }
+                        //If user selects 0 from the submenu, return  to main menu
+                        else if(choice==0){
+                            isSubMenu=false;
+                        }
+                    }
+                    break;
+
+                //Show menu for mobile phones
+                case 2:
+                    while(isSubMenu){
+                        System.out.println("Welcome to mobile phone operations!");
+                        System.out.println("1-Show phones\n2-Add phones\n3-Delete phones\n4-Filter By ID\n5-Filter By Brand\n0-Main Menu");
+                        int choicePhone = scn.nextInt();
+
+                        if (choicePhone == 1) {
+                            System.out.println("***PHONE LIST***");
+                            Product.listProducts(Helper.getPhones());
+                        }
+                        else if (choicePhone == 2) {
                             System.out.println("Select the product brand:");
                             scn.nextLine();
                             String brand = scn.nextLine();
@@ -79,30 +137,12 @@ public class Helper {
                             System.out.println("Enter the product name");
                             scn.nextLine();
                             String name = scn.nextLine();
-                            Product.addProduct(Helper.getNotebooks(), new NoteBook(Brand.valueOf(brand), name, price), id);
-                        } else if (choice == 4) {
-                            System.out.println("Enter the product id you want to display:");
-                            int productID = scn.nextInt();
-                            Product.filterById(Helper.getNotebooks(), productID);
-                        } else if (choice == 5) {
-                            System.out.println("Enter the product brand you want to display:");
-                            scn.nextLine();
-                            String brand = scn.nextLine();
-                            Product.filterByBrand(Helper.getNotebooks(), Brand.valueOf(brand));
-                        }
-                        else if(choice==0){
-                            break;
-                        }
-                        break;
-                case 2:
-                        System.out.println("Welcome to mobile phone operations!");
-                        System.out.println("1-Show phones\n2-Add phones\n3-Delete phones\n4-Filter By ID\n5-Filter By Brand\n0-Main Menu");
-                        int choicePhone = scn.nextInt();
-
-                        if (choicePhone == 1) {
-                            System.out.println("***PHONE LIST***");
-                            Product.listProducts(Helper.getPhones());
-                        } else if (choicePhone == 3) {
+                            try{
+                                Product.addProduct(Helper.getPhones(), new NoteBook(Brand.valueOf(brand), name, price), id);
+                            }catch(Exception e){
+                                System.out.println("This brand is not included in this store.");
+                            }                        }
+                        else if (choicePhone == 3) {
                             System.out.println("Enter the product id you want to delete.");
                             int productId = scn.nextInt();
                             if (Product.removeProduct(Helper.getPhones(), productId)) {
@@ -112,38 +152,36 @@ public class Helper {
                             } else {
                                 System.out.println("There is no product with ID-> " + productId);
                             }
-                        } else if (choicePhone == 2) {
-                            System.out.println("Select the product brand:");
-                            scn.nextLine();
-                            String brand = scn.nextLine();
-                            System.out.println("Enter the product id");
-                            int id = scn.nextInt();
-                            System.out.println("Enter the product price");
-                            int price = scn.nextInt();
-                            System.out.println("Enter the product name");
-                            scn.nextLine();
-                            String name = scn.nextLine();
-                            Product.addProduct(Helper.getPhones(), new NoteBook(Brand.valueOf(brand), name, price), id);
-                        } else if (choicePhone == 4) {
+                        }
+                        else if (choicePhone == 4) {
                             System.out.println("Enter the product id you want to display:");
                             int productID = scn.nextInt();
                             Product.filterById(Helper.getPhones(), productID);
-                        } else if (choicePhone == 5) {
+                        }
+                        else if (choicePhone == 5) {
                             System.out.println("Enter the product brand you want to display:");
                             scn.nextLine();
                             String brand = scn.nextLine();
-                            Product.filterByBrand(Helper.getPhones(), Brand.valueOf(brand));
+                            try{
+                                Product.filterByBrand(Helper.getPhones(), Brand.valueOf(brand));
+                            }catch (Exception e){
+                                System.out.println("No product with this brand.");
+                            }
                         }
+                        //If user selects 0 from the submenu, return  to main menu
                         else if(choicePhone==0){
-                            break;
+                            isSubMenu=false;
                         }
+                    }
+                    break;
+                //List brands by ascending order.
                 case 3:
                     Brand.sortByName();
                     break;
             }
         }
     }
-    //prints the table header
+    //prints the table header for output
     public static void printTableHeader(){
         System.out.println("-------------------------------------------------");
         System.out.format("| %-2s | %-20s | %-10s | %-2s |" ,"ID","Product Name", "Brand","Price");
