@@ -17,22 +17,21 @@ public class Helper {
 
     static void initializePhones() {
         Product phone1 = new Phone(Brand.SAMSUNG, "SAMSUNG GALAXY A51", 20000);
+        phones.put(Phone.getId(), phone1);
         Product phone2 = new Phone(Brand.APPLE, "iPhone 11 64 GB", 30000);
+        phones.put(Phone.getId(), phone2);
         Product phone3 = new Phone(Brand.XIAOMI, "Redmi Note Pro 8GB", 10000);
-        phones.put(1, phone1);
-        phones.put(2, phone2);
-        phones.put(3, phone3);
+        phones.put(Phone.getId(), phone3);
     }
 
     static void initializeNotebooks() {
 
         Product notebook1 = new NoteBook(Brand.HUAWEI, "HUAWEI Matebook 14", 300);
+        notebooks.put(NoteBook.getId(), notebook1);
         Product notebook2 = new NoteBook(Brand.LENOVO, "LENOVO V14 IGL", 400);
+        notebooks.put(NoteBook.getId(), notebook2);
         Product notebook3 = new NoteBook(Brand.ASUS, "ASUS Tuf Gaming", 500);
-        notebooks.put(1, notebook1);
-        notebooks.put(2, notebook2);
-        notebooks.put(3, notebook3);
-
+        notebooks.put(NoteBook.getId(), notebook3);
     }
 
     public static void inputOperations() {
@@ -66,15 +65,13 @@ public class Helper {
                             System.out.println("Select the product brand:");
                             scn.nextLine();
                             String brand = scn.nextLine();
-                            System.out.println("Enter the product id");
-                            int id = scn.nextInt();
                             System.out.println("Enter the product price");
                             int price = scn.nextInt();
                             System.out.println("Enter the product name");
                             scn.nextLine();
                             String name = scn.nextLine();
                             try{
-                                Product.addProduct(Helper.getNotebooks(), new NoteBook(Brand.valueOf(brand), name, price), id);
+                                Product.addProduct(Helper.getNotebooks(), new NoteBook(Brand.valueOf(brand), name, price),NoteBook.getId());
                             }catch(Exception e){
                                 System.out.println("This brand is not included in this store.");
                             }
@@ -130,22 +127,20 @@ public class Helper {
                             System.out.println("Select the product brand:");
                             scn.nextLine();
                             String brand = scn.nextLine();
-                            System.out.println("Enter the product id");
-                            int id = scn.nextInt();
                             System.out.println("Enter the product price");
                             int price = scn.nextInt();
                             System.out.println("Enter the product name");
                             scn.nextLine();
                             String name = scn.nextLine();
                             try{
-                                Product.addProduct(Helper.getPhones(), new NoteBook(Brand.valueOf(brand), name, price), id);
+                                Product.addProduct(Helper.getPhones(), new NoteBook(Brand.valueOf(brand), name, price),NoteBook.getId());
                             }catch(Exception e){
                                 System.out.println("This brand is not included in this store.");
                             }                        }
                         else if (choicePhone == 3) {
                             System.out.println("Enter the product id you want to delete.");
                             int productId = scn.nextInt();
-                            if (Product.removeProduct(Helper.getPhones(), productId)) {
+                            if (Product.removeProduct(Helper.getPhones(), Phone.getId())) {
                                 System.out.println("Product is removed");
                                 System.out.println("Here is the updated version of the products list");
                                 Product.listProducts(Helper.getPhones());

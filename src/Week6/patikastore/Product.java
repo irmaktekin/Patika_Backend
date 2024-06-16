@@ -1,7 +1,6 @@
 package Week6.patikastore;
 
 import java.util.Map;
-import java.util.Objects;
 
 public abstract class Product{
 
@@ -57,7 +56,6 @@ public abstract class Product{
 
     }
     static void filterByBrand(Map<Integer,Product> products,Brand brand){
-
         for (Map.Entry<Integer, Product> entry : products.entrySet()) {
             if(entry.getValue().getBrand().toString().equals(brand.toString())){
                 System.out.format( " ID-> %s Name-> %s Brand-> %s Price-> %-2d ", entry.getKey(), entry.getValue().getName(),entry.getValue().getBrand(),entry.getValue().getPrice());
